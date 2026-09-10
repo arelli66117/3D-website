@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIK X - 3D Sneaker Store</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo">RIK X</h2>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Shop</a></li>
+                <li><a href="cart.html">Cart 🛒</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero">
+
+        <div class="hero-text">
+            <h4>NEW COLLECTION 2026</h4>
+
+            <h1>
+                NEXT LEVEL <span>SNEAKERS</span>
+            </h1>
+
+            <p>
+                Welcome to RIK X — India's futuristic 3D sneaker shopping experience.
+                Premium Shoes, Hoodies and Streetwear.
+            </p>
+
+            <a href="products.html" class="btn">Shop Now</a>
+        </div>
+
+        <!-- 3D Shoe Card -->
+        <div class="shoe-container">
+            <div class="shoe-card" id="shoeCard">
+                <img src="images/rik.png" alt="RIK Sneaker">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ================= FEATURES ================= -->
+    <section class="features">
+
+        <div class="feature-box">
+            <h3>🚚 Free Delivery</h3>
+            <p>Free shipping on all orders above ₹999.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>💳 Secure Payment</h3>
+            <p>100% Safe Online Payments.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>⭐ Premium Quality</h3>
+            <p>Original Fashion & Sneakers.</p>
+        </div>
+
+    </section>
+
+    <!-- ================= TRENDING PRODUCTS ================= -->
+    <section class="trending">
+
+        <h2>🔥 Trending Collection</h2>
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img src="images/rik.png" alt="RIK Sneaker">
+                <h3>RIK Hoodie</h3>
+                <p>₹1,299</p>
+                <button>Buy Now</button>
+            </div>
+
+            <div class="product-card">
+                <img src="images/img2.png" alt="RIK Hoodie">
+                <h3>Street Hoodie</h3>
+                <p>₹1,299</p>
+                <button>Buy Now</button>
+            </div>
+
+            <div class="product-card">
+                <img src="images/img5.png" alt="RIK X ">
+                <h3>RIK X Cap</h3>
+                <p>₹599</p>
+                <button>Buy Now</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= SALE SECTION ================= -->
+    <section class="sale">
+
+        <h2>⚡ FLASH SALE</h2>
+
+        <h1>UP TO 70% OFF</h1>
+
+        <p>Only Today — Grab your favourite sneakers before the sale ends.</p>
+
+        <a href="products.html" class="btn">Explore Sale</a>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <h2>RIK X</h2>
+
+        <p>Designed by Arelli Rithwik</p>
+
+        <p>Email : arellirithwik@gmail.com</p>
+
+        <p>© 2026 RIK X. All Rights Reserved.</p>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+
+        const card = document.getElementById("shoeCard");
+
+        card.addEventListener("mousemove", (e) => {
+
+            const rect = card.getBoundingClientRect();
+
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const rotateY = ((x / rect.width) - 0.5) * 30;
+            const rotateX = ((y / rect.height) - 0.5) * -30;
+
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "rotateX(0deg) rotateY(0deg)";
+        });
+
+       
+
+    </script>
+
+</body>
+</html>

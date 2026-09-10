@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIK X | Products</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css\style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header>
+    <nav class="navbar">
+        <h2 class="logo">RIK X</h2>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart 🛒 <span id="cart-count">0</span></a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ================= PRODUCTS SECTION ================= -->
+<section class="trending">
+
+    <h2>🔥 RIK X Premium Collection</h2>
+    <p style="text-align:center;color:#ccc;margin-bottom:40px;">
+        Choose your favorite sneakers, hoodies and streetwear.
+    </p>
+
+    <div class="product-grid">
+
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="images/img2.png" alt="RIK Sneaker">
+            <h3>RIK Orange Sneaker</h3>
+            <p>₹2,499</p>
+            <button onclick="addToCart('RIK Orange Sneaker',2499,'images/img2.png')">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="images/img4.jpg" alt="Sneaker">
+            <h3>Air Sneaker X</h3>
+            <p>₹2,999</p>
+            <button onclick="addToCart('Air Sneaker X',2999,'images/img4.jpg')">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="images/img5.png" alt="Hoodie">
+            <h3>Street Hoodie</h3>
+            <p>₹1,299</p>
+            <button onclick="addToCart('Street Hoodie',1299,'images/img5.png')">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <img src="images/img6.png" alt="Cap">
+            <h3>RIK X Cap</h3>
+            <p>₹599</p>
+            <button onclick="addToCart('RIK X Cap',599,'images/img6.png')">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+            <img src="images/img2.png" alt="Sneaker">
+            <h3>Urban Sneakers</h3>
+            <p>₹3,199</p>
+            <button onclick="addToCart('Urban Sneakers',3199,'images/img2.png')">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card">
+            <img src="images/img4.jpg" alt="Sneaker">
+            <h3>Runner Pro Sneakers</h3>
+            <p>₹3,499</p>
+            <button onclick="addToCart('Runner Pro Sneakers',3499,'images/img4.jpg')">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card">
+            <img src="images/img5.png" alt="Hoodie">
+            <h3>Oversized Hoodie</h3>
+            <p>₹1,599</p>
+            <button onclick="addToCart('Oversized Hoodie',1599,'images/img5.png')">🛒 Add to Cart</button>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card">
+            <img src="images/img6.png" alt="Cap">
+            <h3>Black Street Cap</h3>
+            <p>₹699</p>
+            <button onclick="addToCart('Black Street Cap',699,'images/img6.png')">🛒 Add to Cart</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= OFFER SECTION ================= -->
+<section class="sale">
+    <h2>⚡ FLASH SALE</h2>
+    <h1>UP TO 70% OFF</h1>
+    <p>Only Today on RIK X Sneakers & Streetwear.</p>
+    <a href="cart.html" class="btn">Go To Cart</a>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <h2>RIK X</h2>
+    <p>Premium Sneaker & Streetwear Store</p>
+    <p>Designed by Arelli Rithwik</p>
+    <p>📧 arellirithwik@gmail.com</p>
+    <p>© 2026 RIK X. All Rights Reserved.</p>
+</footer>
+
+<!-- JavaScript -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIK X - Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#050505,#111,#1a1a1a);
+overflow:hidden;
+}
+
+/* Orange Glow */
+body::before{
+content:'';
+position:absolute;
+width:450px;
+height:450px;
+background:#ff6600;
+border-radius:50%;
+filter:blur(150px);
+opacity:.25;
+top:-120px;
+right:-120px;
+}
+
+body::after{
+content:'';
+position:absolute;
+width:300px;
+height:300px;
+background:#ff3300;
+border-radius:50%;
+filter:blur(130px);
+opacity:.2;
+bottom:-100px;
+left:-100px;
+}
+
+.container{
+display:flex;
+align-items:center;
+gap:60px;
+z-index:10;
+}
+
+/* Dancing Sneaker */
+.character img{
+width:260px;
+filter:drop-shadow(0 20px 30px rgba(255,102,0,.8));
+animation:dance 2s infinite ease-in-out;
+}
+
+@keyframes dance{
+0%{transform:rotate(-10deg) translateY(0);} 
+25%{transform:rotate(10deg) translateY(-15px);} 
+50%{transform:rotate(-10deg) translateY(0);} 
+75%{transform:rotate(10deg) translateY(-15px);} 
+100%{transform:rotate(-10deg) translateY(0);} 
+}
+
+/* Login Card */
+.login-box{
+width:380px;
+padding:35px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,102,0,.3);
+backdrop-filter:blur(20px);
+border-radius:25px;
+box-shadow:0 0 35px rgba(255,102,0,.35);
+}
+
+.login-box h1{
+color:#ff6600;
+text-align:center;
+margin-bottom:10px;
+font-size:32px;
+}
+
+.login-box p{
+text-align:center;
+color:#bbb;
+margin-bottom:25px;
+}
+
+.input-box{
+margin-bottom:18px;
+}
+
+.input-box input{
+width:100%;
+padding:14px 18px;
+background:#1b1b1b;
+border:2px solid #333;
+color:#fff;
+border-radius:12px;
+outline:none;
+transition:.3s;
+}
+
+.input-box input:focus{
+border-color:#ff6600;
+box-shadow:0 0 15px rgba(255,102,0,.5);
+}
+
+.login-btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:30px;
+background:#ff6600;
+color:#fff;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.login-btn:hover{
+background:#ff8800;
+transform:scale(1.05);
+box-shadow:0 0 20px #ff6600;
+}
+
+.links{
+margin-top:20px;
+text-align:center;
+}
+
+.links a{
+color:#ff6600;
+text-decoration:none;
+font-weight:600;
+}
+
+#message{
+text-align:center;
+margin-top:15px;
+font-weight:bold;
+}
+
+@media(max-width:900px){
+.container{
+flex-direction:column;
+gap:20px;
+}
+.character img{
+width:180px;
+}
+.login-box{
+width:90%;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="character">
+<img src="images/img6.png" alt="RIK Sneaker">
+</div>
+
+<div class="login-box">
+<h1>RIK X</h1>
+<p>Welcome Back  👋</p>
+
+<form id="loginForm">
+<div class="input-box">
+<input type="email" id="email" placeholder="Enter Email" required>
+</div>
+
+<div class="input-box">
+<input type="password" id="password" placeholder="Enter Password" required>
+</div>
+
+<button class="login-btn" type="submit">LOGIN</button>
+</form>
+
+<p id="message"></p>
+
+<div class="links">
+<a href="register.html">Create New Account</a>
+</div>
+</div>
+
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit",function(e){
+e.preventDefault();
+
+let email=document.getElementById("email").value;
+let password=document.getElementById("password").value;
+let user=JSON.parse(localStorage.getItem("rikUser"));
+
+if(user && email===user.email && password===user.password){
+document.getElementById("message").style.color="#00ff99";
+document.getElementById("message").innerHTML="🎉 Login Successful!";
+setTimeout(()=>window.location.href="products.html",1500);
+}else{
+document.getElementById("message").style.color="#ff4444";
+document.getElementById("message").innerHTML="❌ Wrong Email or Password";
+}
+});
+</script>
+
+</body>
+</html>

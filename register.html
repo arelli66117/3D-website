@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIK X - Register</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#050505,#111,#1a1a1a);
+    overflow:hidden;
+}
+
+/* Orange Glow Background */
+body::before{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    background:#ff6600;
+    border-radius:50%;
+    filter:blur(150px);
+    opacity:.25;
+    top:-120px;
+    right:-120px;
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:#ff3300;
+    border-radius:50%;
+    filter:blur(130px);
+    opacity:.20;
+    bottom:-100px;
+    left:-100px;
+}
+
+.container{
+    display:flex;
+    align-items:center;
+    gap:60px;
+    z-index:10;
+}
+
+/* Character Image */
+.character img{
+    width:260px;
+    filter:drop-shadow(0 20px 30px rgba(255,102,0,.8));
+    animation:float 3s infinite ease-in-out;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0px);}
+    50%{transform:translateY(-15px);}
+}
+
+/* Register Box */
+.register-box{
+    width:420px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,102,0,.3);
+    backdrop-filter:blur(20px);
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 0 35px rgba(255,102,0,.35);
+}
+
+.register-box h1{
+    color:#ff6600;
+    text-align:center;
+    margin-bottom:8px;
+}
+
+.register-box p{
+    text-align:center;
+    color:#ccc;
+    margin-bottom:20px;
+}
+
+.input-box{
+    margin-bottom:15px;
+}
+
+.input-box input{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#1b1b1b;
+    color:white;
+    outline:none;
+    border:2px solid #333;
+    transition:.3s;
+}
+
+.input-box input:focus{
+    border-color:#ff6600;
+    box-shadow:0 0 15px rgba(255,102,0,.5);
+}
+
+.register-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    background:#ff6600;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.register-btn:hover{
+    background:#ff8800;
+    transform:scale(1.05);
+    box-shadow:0 0 20px #ff6600;
+}
+
+.links{
+    text-align:center;
+    margin-top:18px;
+}
+
+.links a{
+    color:#ff6600;
+    text-decoration:none;
+    font-weight:600;
+}
+
+#message{
+    text-align:center;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+@media(max-width:900px){
+    .container{
+        flex-direction:column;
+        gap:20px;
+        padding:20px;
+    }
+
+    .character img{
+        width:180px;
+    }
+
+    .register-box{
+        width:100%;
+        max-width:420px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Character -->
+    <div class="character">
+        <img src="images/img6.png" alt="RIK Character">
+    </div>
+
+    <!-- Register Form -->
+    <div class="register-box">
+
+        <h1>Create Account 🚀</h1>
+        <p>Join the RIK X Family</p>
+
+        <form id="registerForm">
+
+            <div class="input-box">
+                <input type="text" id="name" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-box">
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-box">
+                <input type="tel" id="mobile" placeholder="Mobile Number" required>
+            </div>
+
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Create Password" required>
+            </div>
+
+            <div class="input-box">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+
+            <button class="register-btn" type="submit">REGISTER</button>
+
+        </form>
+
+        <p id="message"></p>
+
+        <div class="links">
+            <a href="login.html">Already have an account? Login</a>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const registerForm = document.getElementById("registerForm");
+const message = document.getElementById("message");
+
+registerForm.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const mobile = document.getElementById("mobile").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if(password !== confirmPassword){
+        message.style.color = "#ff4444";
+        message.innerHTML = "❌ Passwords do not match!";
+        return;
+    }
+
+    const user = { name, email, mobile, password };
+    localStorage.setItem("rikUser", JSON.stringify(user));
+
+    message.style.color = "#00ff99";
+    message.innerHTML = "🎉 Registration Successful! Redirecting...";
+
+    registerForm.reset();
+
+    setTimeout(()=>{
+        window.location.href = "login.html";
+    },1500);
+});
+</script>
+
+</body>
+</html>

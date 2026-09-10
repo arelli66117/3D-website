@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIK X | Checkout</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+
+<header>
+    <nav class="navbar">
+        <h2 class="logo">RIK X</h2>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart 🛒</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ============ CHECKOUT SECTION ============ -->
+
+<section class="checkout-section">
+
+    <div class="checkout-box">
+
+        <h1>💳 Checkout</h1>
+        <p>Complete your RIK X order.</p>
+
+        <form id="checkoutForm">
+
+            <input type="text" placeholder="Full Name" required>
+
+            <input type="tel" placeholder="Mobile Number" required>
+
+            <input type="email" placeholder="Email Address" required>
+
+            <textarea placeholder="Delivery Address" rows="4" required></textarea>
+
+            <select required>
+                <option value="">Choose Payment Method</option>
+                <option>Cash on Delivery</option>
+                <option>UPI (PhonePe / GPay)</option>
+                <option>Debit / Credit Card</option>
+            </select>
+
+            <div class="order-summary">
+                <h3>🧾 Order Summary</h3>
+                <p>Total Amount :</p>
+                <h2 id="checkout-total">₹0</h2>
+            </div>
+
+            <button type="submit" class="place-order-btn">
+                ✅ Place Order
+            </button>
+
+        </form>
+
+        <p id="successMessage"></p>
+
+    </div>
+
+</section>
+
+<!-- ============ FOOTER ============ -->
+
+<footer>
+    <h2>RIK X</h2>
+    <p>Premium Sneaker & Streetwear Store</p>
+    <p>Designed by Arelli Rithwik ❤️</p>
+    <p>© 2026 RIK X. All Rights Reserved.</p>
+</footer>
+
+<!-- ============ JAVASCRIPT ============ -->
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let total = 0;
+
+cart.forEach(item=>{
+    total += item.price;
+});
+
+document.getElementById("checkout-total").innerHTML = "₹" + total;
+
+document.getElementById("checkoutForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    document.getElementById("successMessage").style.color="#00ff99";
+    document.getElementById("successMessage").innerHTML =
+    "🎉 Order Placed Successfully! Thank you for shopping with RIK X.";
+
+    localStorage.removeItem("cart");
+
+    setTimeout(()=>{
+        window.location.href="index.html";
+    },2500);
+
+});
+</script>
+
+</body>
+</html>
